@@ -7,6 +7,7 @@ from bs4 import BeautifulSoup
 from contractions import CONTRACTION_MAP
 from nltk.tokenize.toktok import ToktokTokenizer
 
+nltk.download('stopwords')
 
 tokenizer = ToktokTokenizer()
 stopword_list = nltk.corpus.stopwords.words('english')
