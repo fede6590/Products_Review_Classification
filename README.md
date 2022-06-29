@@ -24,7 +24,7 @@ $ docker run --rm -it \
 It doesn't matter if you are inside or outside a Docker container, in order to execute the project you need to launch a Jupyter notebook server running:
 
 ```bash
-$ jupyter --ip 0.0.0.0 --port 8888 --allow-root
+$ jupyter notebook --ip 0.0.0.0 --port 8888 --allow-root
 ```
 
 Then, inside the file `Sentiment_Analysis_NLP.ipynb`, you can see the project statement, description and also which parts of the code you must complete in order to solve it.
