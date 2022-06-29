@@ -1,0 +1,13 @@
+# Ignore everything
+*
+
+# But not these files...
+!.gitignore
+!.git
+!Dockerfile
+!README.md
+!Sentiment_Analysis_NLP.ipynb
+!contractions.py
+!evaluation.py
+!text_normalizer.py
+!requirements.txt
