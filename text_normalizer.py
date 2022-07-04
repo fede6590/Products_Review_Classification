@@ -1,7 +1,9 @@
 import re
+from tokenize import TokenInfo
 import nltk
 import spacy
 import unicodedata
+import unidecode
 
 from bs4 import BeautifulSoup
 from contractions import CONTRACTION_MAP
@@ -15,47 +17,62 @@ nlp = spacy.load('en_core_web_sm')
 
 
 def remove_html_tags(text):
-    # Put your code
+    # text = re.sub('<[^<]+?>', '', text)
+    text = BeautifulSoup(text, 'html.parser')
+    text = text.get_text()
     return text
 
 
 def stem_text(text):
-    # Put your code
+    ps = nltk.porter.PorterStemmer()
+    tok_text = tokenizer.tokenize(text)
+    for tok in tok_text:
+        tok_text[tok_text.index(tok)] = ps.stem(tok)
+    text = ' '.join(tok_text)
     return text
 
 
 def lemmatize_text(text):
-    # Put your code
+    text = nlp(text)
+    text = ' '.join([tok.lemma_ if tok.lemma_ != '-PRON-' else tok.text for tok in text])
     return text
 
 
 def expand_contractions(text, contraction_mapping=CONTRACTION_MAP):
-    # Put your code
+    for key, value in contraction_mapping.items():
+        text = text.replace(key, value)
     return text
 
 
 def remove_accented_chars(text):
-    # Put your code
+    text = unidecode.unidecode(text)
     return text
 
 
 def remove_special_chars(text, remove_digits=False):
-    # Put your code
+    to_remove = r'[^a-zA-Z0-9\s]' if not remove_digits else r'[^a-zA-Z\s]'
+    text = re.sub(to_remove, '', text)
     return text
 
 
 def remove_stopwords(text, is_lower_case=False, stopwords=stopword_list):
-    # Put your code
+    tokens = tokenizer.tokenize(text)
+    tokens = [token.strip() for token in tokens]
+    if is_lower_case:
+        filtered_tokens = [token for token in tokens if token not in stopwords]
+    else:
+        filtered_tokens = [token for token in tokens if token.lower() not in stopwords]
+    text = ' '.join(filtered_tokens) 
     return text
 
 
 def remove_extra_new_lines(text):
-    # Put your code
+    text = re.sub(r'\s', ' ', text)
     return text
 
 
 def remove_extra_whitespace(text):
-    # Put your code
+    text = re.sub(' +', ' ', text)
     return text
     
 

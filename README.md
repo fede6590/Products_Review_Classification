@@ -27,6 +27,10 @@ It doesn't matter if you are inside or outside a Docker container, in order to e
 $ jupyter notebook --ip 0.0.0.0 --port 8888 --allow-root
 ```
 
+```bash
+$ jupyter notebook --ip 0.0.0.0 --port 8888 --allow-root --NotebookApp.iopub_data_rate_limit=1.0e10
+```
+
 Then, inside the file `Sentiment_Analysis_NLP.ipynb`, you can see the project statement, description and also which parts of the code you must complete in order to solve it.
 
 ## Tests
