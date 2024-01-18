@@ -1,7 +1,6 @@
-# AnyoneAI - Project VI
-## Sentiment Analysis on Movies Reviews
+# Sentiment Analysis on Movies Reviews
 
-### Install
+## Install
 
 You can use `Docker` to easily install all the needed packages and libraries:
 
@@ -9,7 +8,7 @@ You can use `Docker` to easily install all the needed packages and libraries:
 $ docker build -t s06_project .
 ```
 
-#### Run Docker
+### Run Docker
 
 ```bash
 $ docker run --rm -it \
@@ -19,7 +18,7 @@ $ docker run --rm -it \
     bash
 ```
 
-### Run Project
+## Run Project
 
 It doesn't matter if you are inside or outside a Docker container, in order to execute the project you need to launch a Jupyter notebook server running:
 
@@ -33,7 +32,7 @@ $ jupyter notebook --ip 0.0.0.0 --port 8888 --allow-root --NotebookApp.iopub_dat
 
 Then, inside the file `Sentiment_Analysis_NLP.ipynb`, you can see the project statement, description and also which parts of the code you must complete in order to solve it.
 
-### Tests
+## Tests
 
 We've added some basic tests to `Sentiment_Analysis_NLP.ipynb` that you must be able to run without errors in order to approve the project. If you encounter some issues in the path, make sure to be following these requirements in your code:
 
